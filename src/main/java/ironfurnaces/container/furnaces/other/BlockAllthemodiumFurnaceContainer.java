@@ -13,12 +13,7 @@ import net.minecraft.world.level.Level;
 public class BlockAllthemodiumFurnaceContainer extends BlockIronFurnaceContainerBase {
 
 
-    // Client
-    public BlockAllthemodiumFurnaceContainer(int containerId, Inventory playerInventory) {
-        this(containerId, Minecraft.getInstance().level, BlockPos.ZERO, playerInventory, playerInventory.player);
-    }
 
-    // Server
     public BlockAllthemodiumFurnaceContainer(int windowId, Level world, BlockPos pos, Inventory playerInventory, Player player) {
         super(Registration.ALLTHEMODIUM_FURNACE_CONTAINER.get(), windowId, world, pos, playerInventory, player);
         this.te = (BlockAllthemodiumFurnaceTile) world.getBlockEntity(pos);

@@ -11,12 +11,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 
 public class BlockUnobtainiumFurnaceContainer extends BlockIronFurnaceContainerBase {
-    // Client
-    public BlockUnobtainiumFurnaceContainer(int containerId, Inventory playerInventory) {
-        this(containerId, Minecraft.getInstance().level, BlockPos.ZERO, playerInventory, playerInventory.player);
-    }
 
-    // Server
     public BlockUnobtainiumFurnaceContainer(int windowId, Level world, BlockPos pos, Inventory playerInventory, Player player) {
         super(Registration.UNOBTAINIUM_FURNACE_CONTAINER.get(), windowId, world, pos, playerInventory, player);
         this.te = (BlockUnobtainiumFurnaceTile) world.getBlockEntity(pos);

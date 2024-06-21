@@ -1148,6 +1148,7 @@ public abstract class BlockIronFurnaceTileBase extends TileEntityInventory imple
     }
 
     protected void energyOut() {
+
         Map<BlockEntity, Direction> tiles = Maps.newHashMap();
         for (Direction dir : Direction.values()) {
             BlockEntity tile = level.getBlockEntity(worldPosition.offset(dir.getNormal()));
@@ -1160,6 +1161,7 @@ public abstract class BlockIronFurnaceTileBase extends TileEntityInventory imple
                     continue;
                 }
                 if (other.canReceive() && other.getEnergyStored() < other.getMaxEnergyStored()) {
+
                     tiles.put(tile, dir.getOpposite());
                 }
             }

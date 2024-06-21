@@ -59,12 +59,6 @@ public abstract class BlockIronFurnaceBase extends Block implements EntityBlock 
     }
 
     @Override
-    public MenuProvider getMenuProvider(BlockState p_49234_, Level p_49235_, BlockPos p_49236_) {
-        BlockEntity blockentity = p_49235_.getBlockEntity(p_49236_);
-        return blockentity instanceof MenuProvider ? (MenuProvider)blockentity : null;
-    }
-
-    @Override
     public int getLightEmission(BlockState state, BlockGetter world, BlockPos pos) {
         if (Config.disableLightupdates.get())
         {
@@ -120,9 +114,8 @@ public abstract class BlockIronFurnaceBase extends Block implements EntityBlock 
         } else if (stack.getItem() instanceof ItemFurnaceCopy && !(player.isCrouching())) {
             return this.interactCopy(world, pos, player);
         } else {
-            this.interactWith(world, pos, player, state);
+            return this.interactWith(world, pos, player, state);
         }
-        return InteractionResult.SUCCESS;
     }
 
     private InteractionResult interactCopy(Level world, BlockPos pos, Player player) {
@@ -189,17 +182,17 @@ public abstract class BlockIronFurnaceBase extends Block implements EntityBlock 
         return InteractionResult.SUCCESS;
     }
 
-    private void interactWith(Level level, BlockPos pos, Player player, BlockState state) {
-        BlockEntity be = level.getBlockEntity(pos);
-        if (be instanceof MenuProvider) {
-            if (!level.isClientSide && player instanceof ServerPlayer serverPlayer) {
-                serverPlayer.openMenu(state.getMenuProvider(level, pos), buf -> buf.writeBlockPos(pos));
+    private InteractionResult interactWith(Level level, BlockPos pos, Player player, BlockState state) {
+        if (!level.isClientSide && player instanceof ServerPlayer serverPlayer) {
+            BlockEntity be = level.getBlockEntity(pos);
+            serverPlayer.openMenu((MenuProvider) be, buf -> buf.writeBlockPos(pos));
+            if (be instanceof BlockIronFurnaceTileBase)
+            {
+                ((BlockIronFurnaceTileBase) be).furnaceSettings.set(10, 0);
             }
         }
-        if (be instanceof BlockIronFurnaceTileBase)
-        {
-            ((BlockIronFurnaceTileBase) be).furnaceSettings.set(10, 0);
-        }
+
+        return InteractionResult.sidedSuccess(level.isClientSide);
     }
 
     @OnlyIn(Dist.CLIENT)

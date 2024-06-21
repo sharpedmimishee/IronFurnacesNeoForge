@@ -1,3 +1,7 @@
+4.2.1
++Fixes Capabilities not being attached correctly
++Fixes menus not being correctly setup with their respective block entities
++Fixes GUI not being able to be opened on servers
 4.2.0
 +NeoForge migration
 +Version Bump for 1.21

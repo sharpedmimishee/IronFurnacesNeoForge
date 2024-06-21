@@ -1,10 +1,7 @@
 package ironfurnaces.init;
 
-import ironfurnaces.capability.CapabilityIronFurnaces;
 import net.minecraft.world.item.Item;
-import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,11 +18,7 @@ public class ModSetup {
 
     }
 
-    @SubscribeEvent
-    public static void registerCapabilities(RegisterCapabilitiesEvent event)
-    {
-        CapabilityIronFurnaces.register(event);
-    }
+
 
 
 }

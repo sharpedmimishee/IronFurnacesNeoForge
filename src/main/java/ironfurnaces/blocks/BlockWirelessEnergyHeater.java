@@ -32,12 +32,6 @@ public class BlockWirelessEnergyHeater extends Block implements EntityBlock {
         this.registerDefaultState(this.defaultBlockState());
     }
 
-    @Override
-    public MenuProvider getMenuProvider(BlockState p_49234_, Level p_49235_, BlockPos p_49236_) {
-        BlockEntity blockentity = p_49235_.getBlockEntity(p_49236_);
-        return blockentity instanceof MenuProvider ? (MenuProvider)blockentity : null;
-    }
-
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos p_153215_, BlockState p_153216_) {
@@ -94,21 +88,16 @@ public class BlockWirelessEnergyHeater extends Block implements EntityBlock {
 
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult pHitResult) {
-        if (level.isClientSide) {
-            return InteractionResult.SUCCESS;
-        }
-        this.interactWith(level, pos, player, state);
-        return InteractionResult.SUCCESS;
+        return this.interactWith(level, pos, player, state);
     }
 
-    private void interactWith(Level level, BlockPos pos, Player player, BlockState state) {
-        BlockEntity be = level.getBlockEntity(pos);
-        if (be instanceof MenuProvider) {
-            if (!level.isClientSide && player instanceof ServerPlayer serverPlayer) {
-                serverPlayer.openMenu(state.getMenuProvider(level, pos), buf -> buf.writeBlockPos(pos));
-            }
-        }
+    private InteractionResult interactWith(Level level, BlockPos pos, Player player, BlockState state) {
 
+        if (!level.isClientSide && player instanceof ServerPlayer serverPlayer) {
+            BlockEntity be = level.getBlockEntity(pos);
+            serverPlayer.openMenu((MenuProvider) be, buf -> buf.writeBlockPos(pos));
+        }
+        return InteractionResult.sidedSuccess(level.isClientSide);
     }
 
     @Override
@@ -123,6 +112,5 @@ public class BlockWirelessEnergyHeater extends Block implements EntityBlock {
             super.onRemove(state, world, pos, oldState, p_196243_5_);
         }
     }
-
 
 }

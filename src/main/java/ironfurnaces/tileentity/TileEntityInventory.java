@@ -187,6 +187,7 @@ public abstract class TileEntityInventory extends BlockEntity implements ITileIn
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int i, Inventory inventory, Player player) {
+        assert level != null;
         return IcreateMenu(i, inventory, player);
     }
 

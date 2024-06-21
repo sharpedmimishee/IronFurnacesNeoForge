@@ -1,7 +1,6 @@
 package ironfurnaces.init;
 
 import com.mojang.serialization.Codec;
-import ironfurnaces.Config;
 import ironfurnaces.IronFurnaces;
 import ironfurnaces.blocks.BlockWirelessEnergyHeater;
 import ironfurnaces.blocks.furnaces.*;
