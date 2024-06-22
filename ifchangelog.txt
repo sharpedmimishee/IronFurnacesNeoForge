@@ -1,3 +1,7 @@
+4.2.2
++Fixes Generator Blasting Recipes not loading correctly
++Fixes furnace item tooltips not displaying correctly
++Fixes AutoSplit creating infinite items
 4.2.1
 +Fixes Capabilities not being attached correctly
 +Fixes menus not being correctly setup with their respective block entities

@@ -96,9 +96,6 @@ public abstract class BlockIronFurnaceTileBase extends TileEntityInventory imple
     private final RecipeManager.CachedCheck<SingleRecipeInput, ? extends GeneratorRecipe> recipeCheckGenerator;
     public FurnaceSettings furnaceSettings;
 
-
-
-
     public FEnergyStorage energyStorage = new FEnergyStorage(Config.furnaceEnergyCapacityTier2.get()) {
         @Override
         protected void onEnergyChanged() {
@@ -241,10 +238,18 @@ public abstract class BlockIronFurnaceTileBase extends TileEntityInventory imple
 
     protected int getSpeed() {
         int regular = getCookTimeConfig().get();
-        int recipe = getRecipeNonCached(this.getItem(INPUT)).value().getCookingTime();
-        double div = 200.0 / recipe;
-        double i = regular / div;
-        return (int)Math.max(1, i);
+        RecipeHolder<? extends AbstractCookingRecipe> recipe = getRecipeNonCached(this.getItem(INPUT));
+        if (recipe != null)
+        {
+            int recipe_cooktime = recipe.value().getCookingTime();
+            double div = 200.0 / recipe_cooktime;
+            double i = regular / div;
+            return (int)Math.max(1, i);
+        }
+        else
+        {
+            return 0;
+        }
 
     }
 
@@ -267,10 +272,19 @@ public abstract class BlockIronFurnaceTileBase extends TileEntityInventory imple
 
     protected int getFactorySpeed(int slot) {
         int regular = getCookTimeConfig().get();
-        int recipe = getRecipeNonCached(this.getItem(slot - FACTORY_INPUT[0])).value().getCookingTime();
-        double div = 200.0 / recipe;
-        double i = regular / div;
-        return (int)Math.max(1, i);
+        RecipeHolder<? extends AbstractCookingRecipe> recipe = getRecipeNonCached(this.getItem(slot - FACTORY_INPUT[0]));
+        if (recipe != null)
+        {
+            int recipe_cooktime = recipe.value().getCookingTime();
+            double div = 200.0 / recipe_cooktime;
+            double i = regular / div;
+            return (int)Math.max(1, i);
+        }
+        else
+        {
+            return 0;
+        }
+
     }
 
     public ModConfigSpec.IntValue getCookTimeConfig() {
@@ -467,7 +481,7 @@ public abstract class BlockIronFurnaceTileBase extends TileEntityInventory imple
                     getItem(FACTORY_INPUT[j]).shrink(amount);
                     for (int i = start; i < size; i++) {
                         if (getItem(FACTORY_INPUT[i]).isEmpty() && amount > 0) {
-                            setItem(FACTORY_INPUT[i], stack.copy());
+                            setItem(FACTORY_INPUT[i], stack.copyWithCount(1));
                             amount--;
                             setChanged();
                         }

@@ -148,11 +148,11 @@ public class Registration {
             return GENERATOR_ID;
         }
     });
-    public static Supplier<RecipeSerializer<GeneratorRecipe>> GENERATOR_RECIPE_SERIALIZER = RECIPE_SERIALIZERS.register(GENERATOR_ID, () -> new GeneratorRecipe.Serializer<>(GeneratorRecipe::new));
+    public static Supplier<RecipeSerializer<GeneratorRecipe>> GENERATOR_RECIPE_SERIALIZER = RECIPE_SERIALIZERS.register(GENERATOR_ID, GeneratorRecipe.Serializer::new);
 
 
     public static final DeferredHolder<Block, BlockIronFurnace> IRON_FURNACE = BLOCKS.register(BlockIronFurnace.IRON_FURNACE, () -> new BlockIronFurnace(Block.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
-    public static final DeferredHolder<Item, ItemFurnace> IRON_FURNACE_ITEM = ITEMS.register(BlockIronFurnace.IRON_FURNACE, () -> new ItemFurnace(IRON_FURNACE.get(), new Item.Properties(), 200));
+    public static final DeferredHolder<Item, ItemFurnace> IRON_FURNACE_ITEM = ITEMS.register(BlockIronFurnace.IRON_FURNACE, () -> new ItemFurnace(IRON_FURNACE.get(), new Item.Properties()));
     public static final Supplier<BlockEntityType<BlockIronFurnaceTile>> IRON_FURNACE_TILE = TILES.register(BlockIronFurnace.IRON_FURNACE, () -> BlockEntityType.Builder.of(BlockIronFurnaceTile::new, IRON_FURNACE.get()).build(null));
 
     public static final Supplier<MenuType<BlockIronFurnaceContainer>> IRON_FURNACE_CONTAINER = CONTAINERS.register(BlockIronFurnace.IRON_FURNACE, () -> IMenuTypeExtension.create(
@@ -161,7 +161,7 @@ public class Registration {
 
 
     public static final DeferredHolder<Block, BlockGoldFurnace> GOLD_FURNACE = BLOCKS.register(BlockGoldFurnace.GOLD_FURNACE, () -> new BlockGoldFurnace(Block.Properties.ofFullCopy(Blocks.GOLD_BLOCK)));
-    public static final DeferredHolder<Item, ItemFurnace> GOLD_FURNACE_ITEM = ITEMS.register(BlockGoldFurnace.GOLD_FURNACE, () -> new ItemFurnace(GOLD_FURNACE.get(), new Item.Properties(), 200));
+    public static final DeferredHolder<Item, ItemFurnace> GOLD_FURNACE_ITEM = ITEMS.register(BlockGoldFurnace.GOLD_FURNACE, () -> new ItemFurnace(GOLD_FURNACE.get(), new Item.Properties()));
     public static final Supplier<BlockEntityType<BlockGoldFurnaceTile>> GOLD_FURNACE_TILE = TILES.register(BlockGoldFurnace.GOLD_FURNACE, () -> BlockEntityType.Builder.of(BlockGoldFurnaceTile::new, GOLD_FURNACE.get()).build(null));
 
     public static final Supplier<MenuType<BlockGoldFurnaceContainer>> GOLD_FURNACE_CONTAINER = CONTAINERS.register(BlockGoldFurnace.GOLD_FURNACE, () -> IMenuTypeExtension.create(
@@ -169,7 +169,7 @@ public class Registration {
 
 
     public static final DeferredHolder<Block, BlockDiamondFurnace> DIAMOND_FURNACE = BLOCKS.register(BlockDiamondFurnace.DIAMOND_FURNACE, () -> new BlockDiamondFurnace(Block.Properties.ofFullCopy(Blocks.DIAMOND_BLOCK)));
-    public static final DeferredHolder<Item, ItemFurnace> DIAMOND_FURNACE_ITEM = ITEMS.register(BlockDiamondFurnace.DIAMOND_FURNACE, () -> new ItemFurnace(DIAMOND_FURNACE.get(), new Item.Properties(), 200));
+    public static final DeferredHolder<Item, ItemFurnace> DIAMOND_FURNACE_ITEM = ITEMS.register(BlockDiamondFurnace.DIAMOND_FURNACE, () -> new ItemFurnace(DIAMOND_FURNACE.get(), new Item.Properties()));
     public static final Supplier<BlockEntityType<BlockDiamondFurnaceTile>> DIAMOND_FURNACE_TILE = TILES.register(BlockDiamondFurnace.DIAMOND_FURNACE, () -> BlockEntityType.Builder.of(BlockDiamondFurnaceTile::new, DIAMOND_FURNACE.get()).build(null));
 
     public static final Supplier<MenuType<BlockDiamondFurnaceContainer>> DIAMOND_FURNACE_CONTAINER = CONTAINERS.register(BlockDiamondFurnace.DIAMOND_FURNACE, () -> IMenuTypeExtension.create(
@@ -177,7 +177,7 @@ public class Registration {
 
 
     public static final DeferredHolder<Block, BlockEmeraldFurnace> EMERALD_FURNACE = BLOCKS.register(BlockEmeraldFurnace.EMERALD_FURNACE, () -> new BlockEmeraldFurnace(Block.Properties.ofFullCopy(Blocks.EMERALD_BLOCK)));
-    public static final DeferredHolder<Item, ItemFurnace> EMERALD_FURNACE_ITEM = ITEMS.register(BlockEmeraldFurnace.EMERALD_FURNACE, () -> new ItemFurnace(EMERALD_FURNACE.get(), new Item.Properties(), 200));
+    public static final DeferredHolder<Item, ItemFurnace> EMERALD_FURNACE_ITEM = ITEMS.register(BlockEmeraldFurnace.EMERALD_FURNACE, () -> new ItemFurnace(EMERALD_FURNACE.get(), new Item.Properties()));
     public static final Supplier<BlockEntityType<BlockEmeraldFurnaceTile>> EMERALD_FURNACE_TILE = TILES.register(BlockEmeraldFurnace.EMERALD_FURNACE, () -> BlockEntityType.Builder.of(BlockEmeraldFurnaceTile::new, EMERALD_FURNACE.get()).build(null));
 
     public static final Supplier<MenuType<BlockEmeraldFurnaceContainer>> EMERALD_FURNACE_CONTAINER = CONTAINERS.register(BlockEmeraldFurnace.EMERALD_FURNACE, () -> IMenuTypeExtension.create(
@@ -185,7 +185,7 @@ public class Registration {
 
 
     public static final DeferredHolder<Block, BlockObsidianFurnace> OBSIDIAN_FURNACE = BLOCKS.register(BlockObsidianFurnace.OBSIDIAN_FURNACE, () -> new BlockObsidianFurnace(Block.Properties.ofFullCopy(Blocks.OBSIDIAN))); // Assuming BlockObsidianFurnace exists
-    public static final DeferredHolder<Item, ItemFurnace> OBSIDIAN_FURNACE_ITEM = ITEMS.register(BlockObsidianFurnace.OBSIDIAN_FURNACE, () -> new ItemFurnace(OBSIDIAN_FURNACE.get(), new Item.Properties(), 200)); // Assuming Config.obsidianFurnaceSpeed exists and BlockObsidianFurnace
+    public static final DeferredHolder<Item, ItemFurnace> OBSIDIAN_FURNACE_ITEM = ITEMS.register(BlockObsidianFurnace.OBSIDIAN_FURNACE, () -> new ItemFurnace(OBSIDIAN_FURNACE.get(), new Item.Properties())); // Assuming Config.obsidianFurnaceSpeed exists and BlockObsidianFurnace
 
     public static final Supplier<BlockEntityType<BlockObsidianFurnaceTile>> OBSIDIAN_FURNACE_TILE = TILES.register(BlockObsidianFurnace.OBSIDIAN_FURNACE, () -> BlockEntityType.Builder.of(BlockObsidianFurnaceTile::new, OBSIDIAN_FURNACE.get()).build(null));
 
@@ -195,7 +195,7 @@ public class Registration {
 
 
     public static final DeferredHolder<Block, BlockCrystalFurnace> CRYSTAL_FURNACE = BLOCKS.register(BlockCrystalFurnace.CRYSTAL_FURNACE, () -> new BlockCrystalFurnace(Block.Properties.ofFullCopy(Blocks.GLASS))); // Might want to use a custom crystal block here
-    public static final DeferredHolder<Item, ItemFurnace> CRYSTAL_FURNACE_ITEM = ITEMS.register(BlockCrystalFurnace.CRYSTAL_FURNACE, () -> new ItemFurnace(CRYSTAL_FURNACE.get(), new Item.Properties(), 200));
+    public static final DeferredHolder<Item, ItemFurnace> CRYSTAL_FURNACE_ITEM = ITEMS.register(BlockCrystalFurnace.CRYSTAL_FURNACE, () -> new ItemFurnace(CRYSTAL_FURNACE.get(), new Item.Properties()));
     public static final Supplier<BlockEntityType<BlockCrystalFurnaceTile>> CRYSTAL_FURNACE_TILE = TILES.register(BlockCrystalFurnace.CRYSTAL_FURNACE, () -> BlockEntityType.Builder.of(BlockCrystalFurnaceTile::new, CRYSTAL_FURNACE.get()).build(null));
 
     public static final Supplier<MenuType<BlockCrystalFurnaceContainer>> CRYSTAL_FURNACE_CONTAINER = CONTAINERS.register(BlockCrystalFurnace.CRYSTAL_FURNACE, () -> IMenuTypeExtension.create(
@@ -204,7 +204,7 @@ public class Registration {
 
 
     public static final DeferredHolder<Block, BlockNetheriteFurnace> NETHERITE_FURNACE = BLOCKS.register(BlockNetheriteFurnace.NETHERITE_FURNACE, () -> new BlockNetheriteFurnace(Block.Properties.ofFullCopy(Blocks.NETHERITE_BLOCK)));
-    public static final DeferredHolder<Item, ItemFurnace> NETHERITE_FURNACE_ITEM = ITEMS.register(BlockNetheriteFurnace.NETHERITE_FURNACE, () -> new ItemFurnace(NETHERITE_FURNACE.get(), new Item.Properties(), 200));
+    public static final DeferredHolder<Item, ItemFurnace> NETHERITE_FURNACE_ITEM = ITEMS.register(BlockNetheriteFurnace.NETHERITE_FURNACE, () -> new ItemFurnace(NETHERITE_FURNACE.get(), new Item.Properties()));
     public static final Supplier<BlockEntityType<BlockNetheriteFurnaceTile>> NETHERITE_FURNACE_TILE = TILES.register(BlockNetheriteFurnace.NETHERITE_FURNACE, () -> BlockEntityType.Builder.of(BlockNetheriteFurnaceTile::new, NETHERITE_FURNACE.get()).build(null));
 
     public static final Supplier<MenuType<BlockNetheriteFurnaceContainer>> NETHERITE_FURNACE_CONTAINER = CONTAINERS.register(BlockNetheriteFurnace.NETHERITE_FURNACE, () -> IMenuTypeExtension.create(
@@ -213,7 +213,7 @@ public class Registration {
 
 
     public static final DeferredHolder<Block, BlockCopperFurnace> COPPER_FURNACE = BLOCKS.register(BlockCopperFurnace.COPPER_FURNACE, () -> new BlockCopperFurnace(Block.Properties.ofFullCopy(Blocks.COPPER_BLOCK)));
-    public static final DeferredHolder<Item, ItemFurnace> COPPER_FURNACE_ITEM = ITEMS.register(BlockCopperFurnace.COPPER_FURNACE, () -> new ItemFurnace(COPPER_FURNACE.get(), new Item.Properties(), 200));
+    public static final DeferredHolder<Item, ItemFurnace> COPPER_FURNACE_ITEM = ITEMS.register(BlockCopperFurnace.COPPER_FURNACE, () -> new ItemFurnace(COPPER_FURNACE.get(), new Item.Properties()));
     public static final Supplier<BlockEntityType<BlockCopperFurnaceTile>> COPPER_FURNACE_TILE = TILES.register(BlockCopperFurnace.COPPER_FURNACE, () -> BlockEntityType.Builder.of(BlockCopperFurnaceTile::new, COPPER_FURNACE.get()).build(null));
 
     public static final Supplier<MenuType<BlockCopperFurnaceContainer>> COPPER_FURNACE_CONTAINER = CONTAINERS.register(BlockCopperFurnace.COPPER_FURNACE, () -> IMenuTypeExtension.create(
@@ -222,7 +222,7 @@ public class Registration {
 
 
     public static final DeferredHolder<Block, BlockSilverFurnace> SILVER_FURNACE = BLOCKS.register(BlockSilverFurnace.SILVER_FURNACE, () -> new BlockSilverFurnace(Block.Properties.ofFullCopy(Blocks.COPPER_BLOCK)));
-    public static final DeferredHolder<Item, ItemFurnace> SILVER_FURNACE_ITEM = ITEMS.register(BlockSilverFurnace.SILVER_FURNACE, () -> new ItemFurnace(SILVER_FURNACE.get(), new Item.Properties(), 200));
+    public static final DeferredHolder<Item, ItemFurnace> SILVER_FURNACE_ITEM = ITEMS.register(BlockSilverFurnace.SILVER_FURNACE, () -> new ItemFurnace(SILVER_FURNACE.get(), new Item.Properties()));
     public static final Supplier<BlockEntityType<BlockSilverFurnaceTile>> SILVER_FURNACE_TILE = TILES.register(BlockSilverFurnace.SILVER_FURNACE, () -> BlockEntityType.Builder.of(BlockSilverFurnaceTile::new, SILVER_FURNACE.get()).build(null));
 
     public static final Supplier<MenuType<BlockSilverFurnaceContainer>> SILVER_FURNACE_CONTAINER = CONTAINERS.register(BlockSilverFurnace.SILVER_FURNACE, () -> IMenuTypeExtension.create(
@@ -245,7 +245,7 @@ public class Registration {
     public static final DeferredHolder<Item, ItemUpgradeSilver2> SILVER2_UPGRADE = ITEMS.register("upgrade_silver2", () -> new ItemUpgradeSilver2(new Item.Properties()));
 
     public static final DeferredHolder<Block, BlockAllthemodiumFurnace> ALLTHEMODIUM_FURNACE = BLOCKS.register(BlockAllthemodiumFurnace.ALLTHEMODIUM_FURNACE, () -> new BlockAllthemodiumFurnace(Block.Properties.ofFullCopy(Blocks.IRON_BLOCK))); // Assuming BlockAllthemodiumFurnace exists
-    public static final DeferredHolder<Item, ItemFurnace> ALLTHEMODIUM_FURNACE_ITEM = ITEMS.register(BlockAllthemodiumFurnace.ALLTHEMODIUM_FURNACE, () -> new ItemFurnace(ALLTHEMODIUM_FURNACE.get(), new Item.Properties(), 200)); // Assuming Config.allthemodiumFurnaceSpeed exists and BlockAllthemodiumFurnace
+    public static final DeferredHolder<Item, ItemFurnace> ALLTHEMODIUM_FURNACE_ITEM = ITEMS.register(BlockAllthemodiumFurnace.ALLTHEMODIUM_FURNACE, () -> new ItemFurnace(ALLTHEMODIUM_FURNACE.get(), new Item.Properties())); // Assuming Config.allthemodiumFurnaceSpeed exists and BlockAllthemodiumFurnace
 
     public static final Supplier<BlockEntityType<BlockAllthemodiumFurnaceTile>> ALLTHEMODIUM_FURNACE_TILE = TILES.register(BlockAllthemodiumFurnace.ALLTHEMODIUM_FURNACE, () -> BlockEntityType.Builder.of(BlockAllthemodiumFurnaceTile::new, ALLTHEMODIUM_FURNACE.get()).build(null));
 
@@ -254,7 +254,7 @@ public class Registration {
 
 
     public static final DeferredHolder<Block, BlockVibraniumFurnace> VIBRANIUM_FURNACE = BLOCKS.register(BlockVibraniumFurnace.VIBRANIUM_FURNACE, () -> new BlockVibraniumFurnace(Block.Properties.ofFullCopy(Blocks.IRON_BLOCK))); // Assuming BlockVibraniumFurnace exists
-    public static final DeferredHolder<Item, ItemFurnace> VIBRANIUM_FURNACE_ITEM = ITEMS.register(BlockVibraniumFurnace.VIBRANIUM_FURNACE, () -> new ItemFurnace(VIBRANIUM_FURNACE.get(), new Item.Properties(), 200)); // Assuming Config.vibraniumFurnaceSpeed exists and BlockVibraniumFurnace
+    public static final DeferredHolder<Item, ItemFurnace> VIBRANIUM_FURNACE_ITEM = ITEMS.register(BlockVibraniumFurnace.VIBRANIUM_FURNACE, () -> new ItemFurnace(VIBRANIUM_FURNACE.get(), new Item.Properties())); // Assuming Config.vibraniumFurnaceSpeed exists and BlockVibraniumFurnace
 
     public static final Supplier<BlockEntityType<BlockVibraniumFurnaceTile>> VIBRANIUM_FURNACE_TILE = TILES.register(BlockVibraniumFurnace.VIBRANIUM_FURNACE, () -> BlockEntityType.Builder.of(BlockVibraniumFurnaceTile::new, VIBRANIUM_FURNACE.get()).build(null));
 
@@ -263,7 +263,7 @@ public class Registration {
 
 
     public static final DeferredHolder<Block, BlockUnobtainiumFurnace> UNOBTAINIUM_FURNACE = BLOCKS.register(BlockUnobtainiumFurnace.UNOBTAINIUM_FURNACE, () -> new BlockUnobtainiumFurnace(Block.Properties.ofFullCopy(Blocks.IRON_BLOCK))); // Assuming BlockUnobtainiumFurnace exists
-    public static final DeferredHolder<Item, ItemFurnace> UNOBTAINIUM_FURNACE_ITEM = ITEMS.register(BlockUnobtainiumFurnace.UNOBTAINIUM_FURNACE, () -> new ItemFurnace(UNOBTAINIUM_FURNACE.get(), new Item.Properties(), 200)); // Assuming Config.unobtainiumFurnaceSpeed exists and BlockUnobtainiumFurnace
+    public static final DeferredHolder<Item, ItemFurnace> UNOBTAINIUM_FURNACE_ITEM = ITEMS.register(BlockUnobtainiumFurnace.UNOBTAINIUM_FURNACE, () -> new ItemFurnace(UNOBTAINIUM_FURNACE.get(), new Item.Properties())); // Assuming Config.unobtainiumFurnaceSpeed exists and BlockUnobtainiumFurnace
 
     public static final Supplier<BlockEntityType<BlockUnobtainiumFurnaceTile>> UNOBTAINIUM_FURNACE_TILE = TILES.register(BlockUnobtainiumFurnace.UNOBTAINIUM_FURNACE, () -> BlockEntityType.Builder.of(BlockUnobtainiumFurnaceTile::new, UNOBTAINIUM_FURNACE.get()).build(null));
 
@@ -306,7 +306,7 @@ public class Registration {
 
 
     public static final DeferredHolder<Block, BlockMillionFurnace> MILLION_FURNACE = BLOCKS.register(BlockMillionFurnace.MILLION_FURNACE, () -> new BlockMillionFurnace(Block.Properties.ofFullCopy(Blocks.IRON_BLOCK))); // Assuming BlockMillionFurnace exists
-    public static final DeferredHolder<Item, ItemFurnace> MILLION_FURNACE_ITEM = ITEMS.register(BlockMillionFurnace.MILLION_FURNACE, () -> new ItemFurnace(MILLION_FURNACE.get(), new Item.Properties(), 200)); // Assuming Config.ironFurnaceSpeed exists
+    public static final DeferredHolder<Item, ItemMillionFurnace> MILLION_FURNACE_ITEM = ITEMS.register(BlockMillionFurnace.MILLION_FURNACE, () -> new ItemMillionFurnace(MILLION_FURNACE.get(), new Item.Properties())); // Assuming Config.ironFurnaceSpeed exists
 
     public static final Supplier<BlockEntityType<BlockMillionFurnaceTile>> MILLION_FURNACE_TILE = TILES.register(BlockMillionFurnace.MILLION_FURNACE, () -> BlockEntityType.Builder.of(BlockMillionFurnaceTile::new, MILLION_FURNACE.get()).build(null)); // Assuming BlockMillionFurnaceTile exists
 

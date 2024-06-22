@@ -1,25 +1,15 @@
+# Iron Furnaces
+Inspired by cpw's Iron Chests mod, adds a few different tiers of furnace.
 
-Installation information
-=======
+# Report an issue or propose an enhancement
+Create an issue here on GitHub and follow the issue template.
 
-This template repository can be directly cloned to get you started with a new
-mod. Simply create a new repository cloned from this one, by following the
-instructions provided by [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+For feature additions, create an enhancement-tagged issue.
 
-Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
+For performance-related issues, contact me directly on Discord at #mollgan and create an issue here on GitHub. Performance on high mod count modpacks like ATM is a priority.
 
-If at any point you are missing libraries in your IDE, or you've run into problems you can
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
-{this does not affect your code} and then start the process again.
+# Forge
+<a href="https://www.curseforge.com/minecraft/mc-mods/iron-furnaces" target="_blank"><img src="http://cf.way2muchnoise.eu/short_237664.svg?badge_style=flat" /><a href="https://www.curseforge.com/minecraft/mc-mods/iron-furnaces" target="_blank"><img src="http://cf.way2muchnoise.eu/versions/237664.svg?badge_style=flat" /></a>
 
-Mapping Names:
-============
-By default, the MDK is configured to use the official mapping names from Mojang for methods and fields 
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
-
-Additional Resources: 
-==========
-Community Documentation: https://docs.neoforged.net/  
-NeoForged Discord: https://discord.neoforged.net/
+# Fabric
+<a href="https://www.curseforge.com/minecraft/mc-mods/iron-furnaces-fabric" target="_blank"><img src="http://cf.way2muchnoise.eu/short_318036.svg?badge_style=flat" /><a href="https://www.curseforge.com/minecraft/mc-mods/iron-furnaces-fabric" target="_blank"><img src="http://cf.way2muchnoise.eu/versions/318036.svg?badge_style=flat" /></a>

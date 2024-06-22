@@ -1,5 +1,7 @@
 ﻿{
   "type": "ironfurnaces:generator_blasting",
   "energy": 125000,
-  "item": "minecraft:emerald"
+  "ingredient": {
+    "item": "minecraft:emerald"
+  }
 }

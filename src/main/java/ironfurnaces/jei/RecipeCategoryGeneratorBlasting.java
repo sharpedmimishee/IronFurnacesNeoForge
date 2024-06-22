@@ -19,7 +19,6 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Ingredient;
 import org.apache.commons.compress.utils.Lists;
 import org.jetbrains.annotations.Nullable;
 
@@ -72,7 +71,7 @@ public class RecipeCategoryGeneratorBlasting implements IRecipeCategory<Generato
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, GeneratorRecipe recipe, IFocusGroup focuses) {
         builder.addSlot(INPUT, 1, 18)
-                .addIngredients(Ingredient.of(recipe.getIngredient().getItem()));
+                .addIngredients(recipe.ingredient);
     }
 
     @Override
