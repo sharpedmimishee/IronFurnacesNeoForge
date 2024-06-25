@@ -1,3 +1,6 @@
+4.2.3
++Fixes pickaxes not being effective as a tool on furnaces
++Fixes furnaces not dropping the furnace item on breaking
 4.2.2
 +Fixes Generator Blasting Recipes not loading correctly
 +Fixes furnace item tooltips not displaying correctly
