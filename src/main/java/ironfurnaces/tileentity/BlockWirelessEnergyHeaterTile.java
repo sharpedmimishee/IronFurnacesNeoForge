@@ -7,11 +7,13 @@ import ironfurnaces.items.ItemHeater;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -35,9 +37,11 @@ public class BlockWirelessEnergyHeaterTile extends TileEntityInventory {
     public static void tick(Level level, BlockPos worldPosition, BlockState blockState, BlockWirelessEnergyHeaterTile e) {
         ItemStack stack = e.getItem(0);
         if (!stack.isEmpty()) {
-            stack.set(Registration.WIRELESS_BLOCK_POS_X.get(), e.worldPosition.getX());
-            stack.set(Registration.WIRELESS_BLOCK_POS_Y.get(), e.worldPosition.getY());
-            stack.set(Registration.WIRELESS_BLOCK_POS_Z.get(), e.worldPosition.getZ());
+            CompoundTag tag = new CompoundTag();
+            tag.putInt("HeaterPosX", e.worldPosition.getX());
+            tag.putInt("HeaterPosY", e.worldPosition.getY());
+            tag.putInt("HeaterPosZ", e.worldPosition.getZ());
+            stack.set(DataComponents.CUSTOM_DATA, CustomData.of(tag));
 
         }
 

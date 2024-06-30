@@ -36,6 +36,7 @@ import net.minecraft.world.inventory.StackedContentsCompatible;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
@@ -992,32 +993,38 @@ public abstract class BlockIronFurnaceTileBase extends TileEntityInventory imple
                     boolean valid = e.canSmelt(irecipe);
                     if (!e.isBurning() && valid) {
                         if (itemstack.getItem() instanceof ItemHeater) {
-                            int x = itemstack.getOrDefault(Registration.WIRELESS_BLOCK_POS_X.get(), 0);
-                            int y = itemstack.getOrDefault(Registration.WIRELESS_BLOCK_POS_Y.get(), 0);
-                            int z = itemstack.getOrDefault(Registration.WIRELESS_BLOCK_POS_Z.get(), 0);
-
-                            BlockEntity te = level.getBlockEntity(new BlockPos(x, y, z));
-                            if (te != null)
+                            CustomData data = itemstack.get(DataComponents.CUSTOM_DATA);
+                            if (data != null)
                             {
-                                if (te instanceof BlockWirelessEnergyHeaterTile) {
-                                    int energy = ((BlockWirelessEnergyHeaterTile) te).getEnergy();
-                                    if (energy >= 2000) {
-                                        if (!e.getItem(AUGMENT_GREEN).isEmpty() && e.getItem(AUGMENT_GREEN).getItem() instanceof ItemAugmentFuel) {
-                                            e.furnaceBurnTime = 400 * e.getCookTime() / 200;
-                                        } else if (!e.getItem(AUGMENT_GREEN).isEmpty() && e.getItem(AUGMENT_GREEN).getItem() instanceof ItemAugmentSpeed) {
-                                            if (energy >= 4000) {
-                                                e.furnaceBurnTime = 100 * e.getCookTime() / 200;
-                                            }
-                                        } else {
-                                            e.furnaceBurnTime = 200 * e.getCookTime() / 200;
-                                        }
-                                        if (e.furnaceBurnTime > 0)
-                                            ((BlockWirelessEnergyHeaterTile) te).removeEnergy(2000);
+                                CompoundTag tag = data.copyTag();
+                                int x = tag.getInt("HeaterPosX");
+                                int y = tag.getInt("HeaterPosY");
+                                int z = tag.getInt("HeaterPosZ");
 
-                                        e.recipesUsed = e.furnaceBurnTime;
+                                BlockEntity te = level.getBlockEntity(new BlockPos(x, y, z));
+                                if (te != null)
+                                {
+                                    if (te instanceof BlockWirelessEnergyHeaterTile) {
+                                        int energy = ((BlockWirelessEnergyHeaterTile) te).getEnergy();
+                                        if (energy >= 2000) {
+                                            if (!e.getItem(AUGMENT_GREEN).isEmpty() && e.getItem(AUGMENT_GREEN).getItem() instanceof ItemAugmentFuel) {
+                                                e.furnaceBurnTime = 400 * e.getCookTime() / 200;
+                                            } else if (!e.getItem(AUGMENT_GREEN).isEmpty() && e.getItem(AUGMENT_GREEN).getItem() instanceof ItemAugmentSpeed) {
+                                                if (energy >= 4000) {
+                                                    e.furnaceBurnTime = 100 * e.getCookTime() / 200;
+                                                }
+                                            } else {
+                                                e.furnaceBurnTime = 200 * e.getCookTime() / 200;
+                                            }
+                                            if (e.furnaceBurnTime > 0)
+                                                ((BlockWirelessEnergyHeaterTile) te).removeEnergy(2000);
+
+                                            e.recipesUsed = e.furnaceBurnTime;
+                                        }
                                     }
                                 }
                             }
+
 
 
                         } else {

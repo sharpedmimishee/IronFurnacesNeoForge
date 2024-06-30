@@ -24,7 +24,7 @@ public class ItemXmas extends Item {
     public void appendHoverText(ItemStack pStack, TooltipContext pContext, List<Component> tooltip, TooltipFlag pTooltipFlag) {
 
         tooltip.add(Component.translatable("tooltip." + IronFurnaces.MOD_ID + ".xmas_right_click").setStyle(Style.EMPTY.applyFormat((ChatFormatting.GRAY))));
-        tooltip.add(Component.translatable("tooltip." + IronFurnaces.MOD_ID + ".xmas1").setStyle(Style.EMPTY.applyFormat((ChatFormatting.GRAY))));
+        tooltip.add(Component.translatable("tooltip." + IronFurnaces.MOD_ID + ".xmas1").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
         tooltip.add(Component.translatable("tooltip." + IronFurnaces.MOD_ID + ".xmas2").setStyle(Style.EMPTY.applyFormat((ChatFormatting.GRAY))));
     }
 

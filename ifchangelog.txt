@@ -1,3 +1,11 @@
+4.2.4
++Removed redundant recipe
++Removed redundant DataComponents related to Wireless Heater, now uses CustomData and NBT
++Fixes custom names through anvil renaming not displaying in GUI
++Fixes Augments duplicating themselves on insertion
++Fixes Furnace Settings Copy not storing and applying settings
++Added tint to names of Allthemodium furnaces (on craft)
++Added tint to holiday flavour text tooltip item-descriptions
 4.2.3
 +Fixes pickaxes not being effective as a tool on furnaces
 +Fixes furnaces not dropping the furnace item on breaking

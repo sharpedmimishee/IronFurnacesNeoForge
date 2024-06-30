@@ -31,7 +31,7 @@ public class ItemFurnace extends BlockItem {
 
 
 
-    private static int getCooktime(ItemStack stack)
+    protected static int getCooktime(ItemStack stack)
     {
         Item item = stack.getItem();
         if (item == Registration.ALLTHEMODIUM_FURNACE_ITEM.get())

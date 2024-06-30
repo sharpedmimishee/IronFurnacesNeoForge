@@ -76,7 +76,7 @@ public class BlockWirelessEnergyHeater extends Block implements EntityBlock {
             {
                 BlockWirelessEnergyHeaterTile te = (BlockWirelessEnergyHeaterTile) world.getBlockEntity(pos);
                 if (stack.get(DataComponents.CUSTOM_NAME) != null) {
-                    te.setCustomName(stack.getDisplayName());
+                    te.setCustomName(stack.get(DataComponents.CUSTOM_NAME));
                 }
                 int energy = stack.getOrDefault(Registration.ENERGY.get(), 0);
                 te.setEnergy(energy);

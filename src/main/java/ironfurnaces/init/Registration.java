@@ -98,31 +98,6 @@ public class Registration {
                     .build()
     );
 
-    public static final Supplier<DataComponentType<Integer>> WIRELESS_BLOCK_POS_X = DATA_COMPONENT_TYPES.register("wireless_pos_x",
-            () -> DataComponentType.<Integer>builder()
-                    // The codec to read/write the data to disk
-                    .persistent(Codec.INT)
-                    // The codec to read/write the data across the network
-                    .networkSynchronized(ByteBufCodecs.VAR_INT)
-                    .build()
-    );
-    public static final Supplier<DataComponentType<Integer>> WIRELESS_BLOCK_POS_Y = DATA_COMPONENT_TYPES.register("wireless_pos_y",
-            () -> DataComponentType.<Integer>builder()
-                    // The codec to read/write the data to disk
-                    .persistent(Codec.INT)
-                    // The codec to read/write the data across the network
-                    .networkSynchronized(ByteBufCodecs.VAR_INT)
-                    .build()
-    );
-    public static final Supplier<DataComponentType<Integer>> WIRELESS_BLOCK_POS_Z = DATA_COMPONENT_TYPES.register("wireless_pos_z",
-            () -> DataComponentType.<Integer>builder()
-                    // The codec to read/write the data to disk
-                    .persistent(Codec.INT)
-                    // The codec to read/write the data across the network
-                    .networkSynchronized(ByteBufCodecs.VAR_INT)
-                    .build()
-    );
-
     public static final Supplier<DataComponentType<CustomData>> FURNACE_SETTINGS = DATA_COMPONENT_TYPES.register("furnace_settings",
             () -> DataComponentType.<CustomData>builder()
                     // The codec to read/write the data to disk
@@ -245,7 +220,7 @@ public class Registration {
     public static final DeferredHolder<Item, ItemUpgradeSilver2> SILVER2_UPGRADE = ITEMS.register("upgrade_silver2", () -> new ItemUpgradeSilver2(new Item.Properties()));
 
     public static final DeferredHolder<Block, BlockAllthemodiumFurnace> ALLTHEMODIUM_FURNACE = BLOCKS.register(BlockAllthemodiumFurnace.ALLTHEMODIUM_FURNACE, () -> new BlockAllthemodiumFurnace(Block.Properties.ofFullCopy(Blocks.IRON_BLOCK))); // Assuming BlockAllthemodiumFurnace exists
-    public static final DeferredHolder<Item, ItemFurnace> ALLTHEMODIUM_FURNACE_ITEM = ITEMS.register(BlockAllthemodiumFurnace.ALLTHEMODIUM_FURNACE, () -> new ItemFurnace(ALLTHEMODIUM_FURNACE.get(), new Item.Properties())); // Assuming Config.allthemodiumFurnaceSpeed exists and BlockAllthemodiumFurnace
+    public static final DeferredHolder<Item, ItemAllthemodiumFurnace> ALLTHEMODIUM_FURNACE_ITEM = ITEMS.register(BlockAllthemodiumFurnace.ALLTHEMODIUM_FURNACE, () -> new ItemAllthemodiumFurnace(ALLTHEMODIUM_FURNACE.get(), new Item.Properties())); // Assuming Config.allthemodiumFurnaceSpeed exists and BlockAllthemodiumFurnace
 
     public static final Supplier<BlockEntityType<BlockAllthemodiumFurnaceTile>> ALLTHEMODIUM_FURNACE_TILE = TILES.register(BlockAllthemodiumFurnace.ALLTHEMODIUM_FURNACE, () -> BlockEntityType.Builder.of(BlockAllthemodiumFurnaceTile::new, ALLTHEMODIUM_FURNACE.get()).build(null));
 
@@ -254,7 +229,7 @@ public class Registration {
 
 
     public static final DeferredHolder<Block, BlockVibraniumFurnace> VIBRANIUM_FURNACE = BLOCKS.register(BlockVibraniumFurnace.VIBRANIUM_FURNACE, () -> new BlockVibraniumFurnace(Block.Properties.ofFullCopy(Blocks.IRON_BLOCK))); // Assuming BlockVibraniumFurnace exists
-    public static final DeferredHolder<Item, ItemFurnace> VIBRANIUM_FURNACE_ITEM = ITEMS.register(BlockVibraniumFurnace.VIBRANIUM_FURNACE, () -> new ItemFurnace(VIBRANIUM_FURNACE.get(), new Item.Properties())); // Assuming Config.vibraniumFurnaceSpeed exists and BlockVibraniumFurnace
+    public static final DeferredHolder<Item, ItemVibraniumFurnace> VIBRANIUM_FURNACE_ITEM = ITEMS.register(BlockVibraniumFurnace.VIBRANIUM_FURNACE, () -> new ItemVibraniumFurnace(VIBRANIUM_FURNACE.get(), new Item.Properties())); // Assuming Config.vibraniumFurnaceSpeed exists and BlockVibraniumFurnace
 
     public static final Supplier<BlockEntityType<BlockVibraniumFurnaceTile>> VIBRANIUM_FURNACE_TILE = TILES.register(BlockVibraniumFurnace.VIBRANIUM_FURNACE, () -> BlockEntityType.Builder.of(BlockVibraniumFurnaceTile::new, VIBRANIUM_FURNACE.get()).build(null));
 
@@ -263,7 +238,7 @@ public class Registration {
 
 
     public static final DeferredHolder<Block, BlockUnobtainiumFurnace> UNOBTAINIUM_FURNACE = BLOCKS.register(BlockUnobtainiumFurnace.UNOBTAINIUM_FURNACE, () -> new BlockUnobtainiumFurnace(Block.Properties.ofFullCopy(Blocks.IRON_BLOCK))); // Assuming BlockUnobtainiumFurnace exists
-    public static final DeferredHolder<Item, ItemFurnace> UNOBTAINIUM_FURNACE_ITEM = ITEMS.register(BlockUnobtainiumFurnace.UNOBTAINIUM_FURNACE, () -> new ItemFurnace(UNOBTAINIUM_FURNACE.get(), new Item.Properties())); // Assuming Config.unobtainiumFurnaceSpeed exists and BlockUnobtainiumFurnace
+    public static final DeferredHolder<Item, ItemUnobtainiumFurnace> UNOBTAINIUM_FURNACE_ITEM = ITEMS.register(BlockUnobtainiumFurnace.UNOBTAINIUM_FURNACE, () -> new ItemUnobtainiumFurnace(UNOBTAINIUM_FURNACE.get(), new Item.Properties())); // Assuming Config.unobtainiumFurnaceSpeed exists and BlockUnobtainiumFurnace
 
     public static final Supplier<BlockEntityType<BlockUnobtainiumFurnaceTile>> UNOBTAINIUM_FURNACE_TILE = TILES.register(BlockUnobtainiumFurnace.UNOBTAINIUM_FURNACE, () -> BlockEntityType.Builder.of(BlockUnobtainiumFurnaceTile::new, UNOBTAINIUM_FURNACE.get()).build(null));
 

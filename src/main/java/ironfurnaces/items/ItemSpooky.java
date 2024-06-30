@@ -24,8 +24,8 @@ public class ItemSpooky extends Item {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext pContext, List<Component> tooltip, TooltipFlag pTooltipFlag) {
 
-        tooltip.add(Component.translatable("tooltip." + IronFurnaces.MOD_ID + ".spooky_right_click").setStyle(Style.EMPTY.applyFormat((ChatFormatting.GRAY))));
-        tooltip.add(Component.translatable("tooltip." + IronFurnaces.MOD_ID + ".spooky1").setStyle(Style.EMPTY.applyFormat((ChatFormatting.GRAY))));
-        tooltip.add(Component.translatable("tooltip." + IronFurnaces.MOD_ID + ".spooky2").setStyle(Style.EMPTY.applyFormat((ChatFormatting.GRAY))));
+        tooltip.add(Component.translatable("tooltip.ironfurnaces.spooky_right_click").setStyle(Style.EMPTY.applyFormat((ChatFormatting.GRAY))));
+        tooltip.add(Component.translatable("tooltip.ironfurnaces.spooky1").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
+        tooltip.add(Component.translatable("tooltip.ironfurnaces.spooky2").setStyle(Style.EMPTY.applyFormat((ChatFormatting.GRAY))));
     }
 }

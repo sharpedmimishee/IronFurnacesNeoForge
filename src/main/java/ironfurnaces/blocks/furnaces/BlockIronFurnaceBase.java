@@ -76,9 +76,8 @@ public abstract class BlockIronFurnaceBase extends Block implements EntityBlock 
     public void setPlacedBy(Level world, BlockPos pos, BlockState p_180633_3_, @Nullable LivingEntity entity, ItemStack stack) {
         if (entity != null) {
             BlockIronFurnaceTileBase te = (BlockIronFurnaceTileBase) world.getBlockEntity(pos);
-            Component s = stack.getOrDefault(DataComponents.CUSTOM_NAME, stack.getDisplayName());
-            if (!(stack.getDisplayName().getString().contains("[")))
-            {
+            Component s = stack.get(DataComponents.CUSTOM_NAME);
+            if (s != null) {
                 te.setCustomName(s);
             }
 
@@ -119,7 +118,7 @@ public abstract class BlockIronFurnaceBase extends Block implements EntityBlock 
     }
 
     private InteractionResult interactCopy(Level world, BlockPos pos, Player player) {
-        ItemStack stack = player.getMainHandItem().copy();
+        ItemStack stack = player.getMainHandItem();
         if (!(stack.getItem() instanceof ItemFurnaceCopy)) {
             return InteractionResult.SUCCESS;
         }
@@ -153,14 +152,14 @@ public abstract class BlockIronFurnaceBase extends Block implements EntityBlock 
         int slot = stack.getItem() instanceof ItemAugmentRed ? 3 : stack.getItem() instanceof ItemAugmentGreen ? 4 : 5;
         if (!(((WorldlyContainer) te).getItem(slot).isEmpty())) {
             if (!player.isCreative()) {
-                world.addFreshEntity(new ItemEntity(world, pos.getX(), pos.getY() + 1, pos.getZ(), ((WorldlyContainer) te).getItem(slot)));
+                world.addFreshEntity(new ItemEntity(world, pos.getX(), pos.getY() + 1, pos.getZ(), ((WorldlyContainer) te).getItem(slot).copyWithCount(1)));
             }
         }
-        ItemStack newStack = stack.copy();
+        ItemStack newStack = stack.copyWithCount(1);
         ((WorldlyContainer) te).setItem(slot, newStack);
         world.playSound(null, te.getBlockPos(), SoundEvents.ANVIL_USE, SoundSource.BLOCKS, 0.05F, 1.0F);
         if (!player.isCreative()) {
-            stack.shrink(1);
+            player.getMainHandItem().shrink(1);
         }
         ((BlockIronFurnaceTileBase)te).onUpdateSent();
         te.getLevel().markAndNotifyBlock(pos, player.level().getChunkAt(pos), te.getLevel().getBlockState(pos).getBlock().defaultBlockState(), te.getLevel().getBlockState(pos), 2, 0);
