@@ -10,6 +10,7 @@ import ironfurnaces.items.augments.ItemAugmentGreen;
 import ironfurnaces.items.augments.ItemAugmentRed;
 import ironfurnaces.tileentity.furnaces.BlockIronFurnaceTileBase;
 import ironfurnaces.tileentity.furnaces.BlockMillionFurnaceTile;
+import ironfurnaces.util.DirectionUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.component.DataComponents;
@@ -134,6 +135,7 @@ public abstract class BlockIronFurnaceBase extends Block implements EntityBlock 
         }
         CompoundTag newTag = new CompoundTag();
         newTag.putIntArray("settings", settings);
+        newTag.putInt("direction", DirectionUtil.getId(te.getBlockState().getValue(BlockStateProperties.HORIZONTAL_FACING)));
         stack.set(Registration.FURNACE_SETTINGS.get(), CustomData.of(newTag));
 
         ((BlockIronFurnaceTileBase)te).onUpdateSent();

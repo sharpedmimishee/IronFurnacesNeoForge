@@ -1,3 +1,6 @@
+4.2.5
++Fixed factory furnaces smelting everything instantly
++Furnace Settings Linker now copies over the horizontal facing of the furnace
 4.2.4
 +Removed redundant recipe
 +Removed redundant DataComponents related to Wireless Heater, now uses CustomData and NBT

@@ -2,8 +2,10 @@ package ironfurnaces.items;
 
 import ironfurnaces.init.Registration;
 import ironfurnaces.tileentity.furnaces.BlockIronFurnaceTileBase;
+import ironfurnaces.util.DirectionUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
@@ -15,6 +17,7 @@ import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 
@@ -48,6 +51,7 @@ public class ItemFurnaceCopy extends Item {
                 tooltip.add(Component.literal("Auto Output: " + settings[7]).setStyle(Style.EMPTY.applyFormat((ChatFormatting.GRAY))));
                 tooltip.add(Component.literal("Redstone Mode: " + settings[8]).setStyle(Style.EMPTY.applyFormat((ChatFormatting.GRAY))));
                 tooltip.add(Component.literal("Redstone Value: " + settings[9]).setStyle(Style.EMPTY.applyFormat((ChatFormatting.GRAY))));
+                tooltip.add(Component.literal("Direction: " + DirectionUtil.fromId(tag.getInt("direction"))).setStyle(Style.EMPTY.applyFormat((ChatFormatting.GRAY))));
             }
         }
 
@@ -81,6 +85,15 @@ public class ItemFurnaceCopy extends Item {
                     for (int i = 0; i < settings.length; i++) {
                         ((BlockIronFurnaceTileBase) te).furnaceSettings.set(i, settings[i]);
                     }
+                    Direction dir = DirectionUtil.fromId(tag.getInt("direction"));
+                    if (dir != Direction.UP && dir != Direction.DOWN)
+                    {
+                        if (te.getBlockState().getValue(BlockStateProperties.HORIZONTAL_FACING) != dir) {
+                            te.getLevel().setBlock(te.getBlockPos(), te.getBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, dir), 3);
+                        }
+                    }
+
+
 
                 }
             }

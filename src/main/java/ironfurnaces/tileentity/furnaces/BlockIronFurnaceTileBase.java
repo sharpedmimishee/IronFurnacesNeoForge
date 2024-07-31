@@ -273,7 +273,7 @@ public abstract class BlockIronFurnaceTileBase extends TileEntityInventory imple
 
     protected int getFactorySpeed(int slot) {
         int regular = getCookTimeConfig().get();
-        RecipeHolder<? extends AbstractCookingRecipe> recipe = getRecipeNonCached(this.getItem(slot - FACTORY_INPUT[0]));
+        RecipeHolder<? extends AbstractCookingRecipe> recipe = getRecipeNonCached(this.getItem(slot));
         if (recipe != null)
         {
             int recipe_cooktime = recipe.value().getCookingTime();
