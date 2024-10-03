@@ -65,7 +65,7 @@ public abstract class TileEntityInventory extends BlockEntity implements ITileIn
     @Override
     public void loadAdditional(CompoundTag nbt, HolderLookup.Provider provider) {
         super.loadAdditional(nbt, provider);
-        this.inventory = NonNullList.withSize(this.getMaxStackSize(), ItemStack.EMPTY);
+        this.inventory = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
         ContainerHelper.loadAllItems(nbt, this.inventory, provider);
         if (nbt.contains("CustomName", 8)) {
             this.name = Component.Serializer.fromJson(nbt.getString("CustomName"), provider);
@@ -145,18 +145,11 @@ public abstract class TileEntityInventory extends BlockEntity implements ITileIn
 
     @Override
     public void setItem(int index, ItemStack stack) {
-        ItemStack itemstack = this.inventory.get(index);
-        boolean flag = !stack.isEmpty() && ItemStack.isSameItemSameComponents(itemstack, stack);
         this.inventory.set(index, stack);
-        if (stack.getCount() > this.getMaxStackSize()) {
-            stack.setCount(this.getMaxStackSize());
-        }
+        stack.limitSize(this.getMaxStackSize(stack));
     }
 
-    @Override
-    public int getMaxStackSize() {
-        return WorldlyContainer.super.getMaxStackSize();
-    }
+
 
 
     @Override

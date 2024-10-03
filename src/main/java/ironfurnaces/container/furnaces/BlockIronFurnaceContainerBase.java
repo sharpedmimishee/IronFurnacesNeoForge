@@ -67,7 +67,14 @@ public abstract class BlockIronFurnaceContainerBase extends AbstractContainerMen
         layoutPlayerInventorySlots(8, 84);
         checkContainerSize(this.te, 19);
         addDataSlots();
+
+
+
+
+
+
     }
+
 
     public void addDataSlots()
     {
@@ -480,6 +487,7 @@ public abstract class BlockIronFurnaceContainerBase extends AbstractContainerMen
         ItemStack itemstack = ItemStack.EMPTY;
         Slot slot = this.slots.get(index);
 
+
         if (slot != null && slot.hasItem()) {
             ItemStack itemstack1 = slot.getItem();
             itemstack = itemstack1.copy();
@@ -523,21 +531,21 @@ public abstract class BlockIronFurnaceContainerBase extends AbstractContainerMen
                         if (!this.moveItemStackTo(itemstack1, 5, 6, false)) {
                             return ItemStack.EMPTY;
                         }
-                    } else if (index >= 19 && index < 45) {
-                        if (!this.moveItemStackTo(itemstack1, 45, 54, false)) {
+                    } else if (index >= 19 && index <= 45) {
+                        if (!this.moveItemStackTo(itemstack1, 46, 55, false)) {
                             return ItemStack.EMPTY;
                         }
-                    } else if (index >= 45 && index < 54 && !this.moveItemStackTo(itemstack1, 19, 45, false)) {
+                    } else if (index >= 45 && index < 55 && !this.moveItemStackTo(itemstack1, 19, 46, false)) {
                         return ItemStack.EMPTY;
                     }
-                } else if (!this.moveItemStackTo(itemstack1, 19, 54, false)) {
+                } else if (!this.moveItemStackTo(itemstack1, 19, 55, false)) {
                     return ItemStack.EMPTY;
                 }
             }
 
             if (te.isFactory()) {
-                if (index >= 12 && index <= 18) {
-                    if (!this.moveItemStackTo(itemstack1, 19, 54, true)) {
+                if (index > 12 && index <= 18) {
+                    if (!this.moveItemStackTo(itemstack1, 19, 55, true)) {
                         return ItemStack.EMPTY;
                     }
 
@@ -575,14 +583,14 @@ public abstract class BlockIronFurnaceContainerBase extends AbstractContainerMen
                         if (!this.moveItemStackTo(itemstack1, 5, 6, false)) {
                             return ItemStack.EMPTY;
                         }
-                    } else if (index >= 19 && index < 45) {
-                        if (!this.moveItemStackTo(itemstack1, 45, 54, false)) {
+                    } else if (index >= 19 && index <= 45) {
+                        if (!this.moveItemStackTo(itemstack1, 46, 55, false)) {
                             return ItemStack.EMPTY;
                         }
-                    } else if (index >= 45 && index < 54 && !this.moveItemStackTo(itemstack1, 19, 45, false)) {
+                    } else if (index >= 45 && index < 55 && !this.moveItemStackTo(itemstack1, 19, 46, false)) {
                         return ItemStack.EMPTY;
                     }
-                } else if (!this.moveItemStackTo(itemstack1, 19, 54, false)) {
+                } else if (!this.moveItemStackTo(itemstack1, 19, 55, false)) {
                     return ItemStack.EMPTY;
                 }
             }
@@ -590,7 +598,7 @@ public abstract class BlockIronFurnaceContainerBase extends AbstractContainerMen
             {
 
                 if (index == 2) {
-                    if (!this.moveItemStackTo(itemstack1, 19, 54, true)) {
+                    if (!this.moveItemStackTo(itemstack1, 19, 55, true)) {
                         return ItemStack.EMPTY;
                     }
 
@@ -616,14 +624,14 @@ public abstract class BlockIronFurnaceContainerBase extends AbstractContainerMen
                         if (!this.moveItemStackTo(itemstack1, 5, 6, false)) {
                             return ItemStack.EMPTY;
                         }
-                    } else if (index >= 19 && index < 45) {
-                        if (!this.moveItemStackTo(itemstack1, 45, 54, false)) {
+                    } else if (index >= 19 && index <= 45) {
+                        if (!this.moveItemStackTo(itemstack1, 46, 55, false)) {
                             return ItemStack.EMPTY;
                         }
-                    } else if (index >= 45 && index < 54 && !this.moveItemStackTo(itemstack1, 19, 45, false)) {
+                    } else if (index >= 45 && index < 55 && !this.moveItemStackTo(itemstack1, 19, 46, false)) {
                         return ItemStack.EMPTY;
                     }
-                } else if (!this.moveItemStackTo(itemstack1, 19, 54, false)) {
+                } else if (!this.moveItemStackTo(itemstack1, 19, 55, false)) {
                     return ItemStack.EMPTY;
                 }
             }
@@ -665,12 +673,14 @@ public abstract class BlockIronFurnaceContainerBase extends AbstractContainerMen
     }
 
     private void layoutPlayerInventorySlots(int leftCol, int topRow) {
+
         // Player inventory
         addSlotBox(playerInventory, 9, leftCol, topRow, 9, 18, 3, 18);
 
         // Hotbar
         topRow += 58;
         addSlotRange(playerInventory, 0, leftCol, topRow, 9, 18);
+
     }
 
 }

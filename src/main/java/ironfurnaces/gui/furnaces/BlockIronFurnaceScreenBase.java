@@ -77,6 +77,9 @@ public abstract class BlockIronFurnaceScreenBase<T extends BlockIronFurnaceConta
         this.name = name;
     }
 
+
+
+
     @Override
     public void render(GuiGraphics matrix, int mouseX, int mouseY, float partialTicks) {
         this.renderBackground(matrix, mouseX, mouseY, partialTicks);

@@ -13,3 +13,11 @@ For performance-related issues, contact me directly on Discord at #mollgan and c
 
 # Fabric
 <a href="https://www.curseforge.com/minecraft/mc-mods/iron-furnaces-fabric" target="_blank"><img src="http://cf.way2muchnoise.eu/short_318036.svg?badge_style=flat" /><a href="https://www.curseforge.com/minecraft/mc-mods/iron-furnaces-fabric" target="_blank"><img src="http://cf.way2muchnoise.eu/versions/318036.svg?badge_style=flat" /></a>
+
+
+# Contribution
+While this project is open source, that does not mean that I or XenoMustache will actively review and merge pull requests to this project.
+
+If you want to contribute to this project, like a translation for example, or otherwise, please contact us before making a pull request.
+
+You can contact me on Discord at #mollgan with a direct message.

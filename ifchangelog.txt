@@ -1,3 +1,8 @@
+4.2.6
++Fixed and cleaned up two functions in TileEntityInventory
++Fixed quickMoveStack, shift clicking items in furnace sometimes not behaving correct, Credit to Xaunther for pointing this out
++Update to README
++Updated to 1.21.1
 4.2.5
 +Fixed factory furnaces smelting everything instantly
 +Furnace Settings Linker now copies over the horizontal facing of the furnace
