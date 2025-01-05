@@ -26,7 +26,7 @@
     "item.ironfurnaces.upgrade_silver2": "鉄から銀製かまどへのアップグレード",
     "item.ironfurnaces.upgrade_iron2": "動から鉄製かまどへのアップグレード",
     "item.ironfurnaces.upgrade_gold2": "銀から金製かまどへのアップグレード",
-    "item.ironfurnaces.item_copy": "かまど設定リンカ",
+    "item.ironfurnaces.item_copy": "かまど設定リンカー",
 
     "_comment": "タブ",
     "itemGroup.ironfurnaces": "Iron Furnaces",
